@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SaludApp — Elige el diseño</title>
+<style>
+  body { background:#e9ebee; font-family:-apple-system,"Segoe UI",Roboto,sans-serif; margin:0; padding:24px 12px; }
+  h1 { text-align:center; font-size:22px; color:#1a1a1a; }
+  p.sub { text-align:center; color:#666; font-size:14px; margin-top:-8px; }
+  .row { display:flex; flex-wrap:wrap; gap:32px; justify-content:center; }
+  .opt { width:390px; }
+  .tag { text-align:center; margin:14px 0 6px; font-size:16px; font-weight:700; color:#1a1a1a; }
+  .mood { text-align:center; font-size:13px; color:#777; margin-bottom:4px; }
+  .phone { width:390px; height:844px; border-radius:36px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,.25); position:relative; }
+  .scroll { height:100%; overflow:auto; padding-bottom:88px; }
+  /* bottom nav shared */
+  .nav { position:absolute; bottom:0; left:0; right:0; height:64px; display:flex; }
+  .nav div { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:10px; gap:2px; }
+  .nav svg { width:22px; height:22px; }
+  .ic { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none; }
+  .ic svg { width:20px; height:20px; }
+  .card { border-radius:16px; padding:16px; margin:12px 16px 0; }
+  .overline { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  .rowline { display:flex; align-items:center; gap:12px; min-height:64px; }
+  .grow { flex:1; min-width:0; }
+  .t1 { font-size:16px; font-weight:600; }
+  .t2 { font-size:13px; }
+  .pill { display:inline-block; padding:3px 10px; border-radius:999px; font-size:11px; font-weight:700; }
+  .chiprow { display:flex; gap:8px; overflow-x:auto; padding:12px 16px 4px; }
+  .chip { padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap; }
+  .fence { position:absolute; bottom:64px; height:8px; left:0; right:0; }
+
+  /* ============ ① CLÍNICA CLARA (teal) ============ */
+  .a { background:#F6F7F9; --ac:#0E9F8A; }
+  .a .top { padding:20px 16px 8px; }
+  .a .hello { font-size:13px; color:#8A8A8E; }
+  .a .name { font-size:24px; font-weight:700; color:#1A1A1A; }
+  .a .card { background:#fff; }
+  .a .cita { background:#E6F6F3; border:1px solid #CBE9E4; }
+  .a .cita .ac { color:#0E9F8A; }
+  .a .ic { background:rgba(14,159,138,.12); color:#0E9F8A; }
+  .a .chip { background:#fff; border:1px solid #E5E7EA; color:#3b3b40; }
+  .a .chip.on { background:#0E9F8A; border-color:#0E9F8A; color:#fff; }
+  .a .overline { color:#8A8A8E; }
+  .a .t2 { color:#8A8A8E; }
+  .a .nav { background:#fff; border-top:1px solid #EFEFF0; }
+  .a .nav div { color:#8A8A8E; }
+  .a .nav .on { color:#0E9F8A; }
+  .a .cta { position:absolute; left:16px; right:16px; bottom:84px; height:56px; border-radius:28px; background:#0E9F8A; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; box-shadow:0 6px 18px rgba(14,159,138,.35); }
+
+  /* ============ ② MÉDICO AZUL (indigo) ============ */
+  .b { background:#F4F6FB; --ac:#2563EB; }
+  .b .hero { background:linear-gradient(135deg,#2563EB,#1D4ED8); color:#fff; padding:22px 16px 60px; border-radius:0 0 24px 24px; }
+  .b .hello { font-size:13px; color:#c7d5ff; }
+  .b .name { font-size:24px; font-weight:700; }
+  .b .hero .mini { display:flex; gap:12px; margin-top:16px; }
+  .b .hero .mini div { flex:1; background:rgba(255,255,255,.14); border-radius:12px; padding:10px; }
+  .b .hero .mini .n { font-size:18px; font-weight:700; }
+  .b .hero .mini .l { font-size:10px; color:#d6e0ff; letter-spacing:.08em; text-transform:uppercase; }
+  .b .card { background:#fff; margin-top:-44px; }
+  .b .cita { margin-top:-44px; }
+  .b .cita .ac { color:#2563EB; }
+  .b .ic { background:rgba(37,99,235,.12); color:#2563EB; }
+  .b .chip { background:#fff; border:1px solid #E5E7EA; color:#3b3b40; }
+  .b .chip.on { background:#2563EB; border-color:#2563EB; color:#fff; }
+  .b .overline { color:#8A8A8E; }
+  .b .t2 { color:#8A8A8E; }
+  .b .nav { background:#fff; border-top:1px solid #EFEFF0; }
+  .b .nav div { color:#8A8A8E; }
+  .b .nav .on { color:#2563EB; }
+  .b .cta { position:absolute; left:16px; right:16px; bottom:84px; height:56px; border-radius:28px; background:#2563EB; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; box-shadow:0 6px 18px rgba(37,99,235,.35); }
+
+  /* ============ ③ MODO NOCHE (dark + verde) ============ */
+  .c { background:#121214; --ac:#22C55E; }
+  .c .top { padding:20px 16px 8px; }
+  .c .hello { font-size:13px; color:#9A9AA0; }
+  .c .name { font-size:24px; font-weight:700; color:#F2F2F4; }
+  .c .card { background:#1E1E20; }
+  .c .cita { background:linear-gradient(135deg,#152016,#18251a); border:1px solid #2c3b2f; }
+  .c .cita .ac { color:#22C55E; }
+  .c .ic { background:rgba(34,197,94,.15); color:#22C55E; }
+  .c .chip { background:#1E1E20; border:1px solid #2A2A2E; color:#cfcfd2; }
+  .c .chip.on { background:#22C55E; border-color:#22C55E; color:#101410; }
+  .c .overline { color:#9A9AA0; }
+  .c .t2 { color:#9A9AA0; }
+  .c .t1 { color:#F2F2F4; }
+  .c .nav { background:#1E1E20; border-top:1px solid #2A2A2E; }
+  .c .nav div { color:#9A9AA0; }
+  .c .nav .on { color:#22C55E; }
+  .c .cta { position:absolute; left:16px; right:16px; bottom:84px; height:56px; border-radius:28px; background:#22C55E; color:#101410; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; box-shadow:0 6px 18px rgba(34,197,94,.3); }
+
+  .statrow { display:flex; gap:12px; margin:12px 16px 0; }
+  .statrow .card { flex:1; margin:0; }
+  .big { font-size:20px; font-weight:700; }
+</style>
+</head>
+<body>
+<h1>SaludApp — 3 direcciones de diseño</h1>
+<p class="sub">Mismo contenido (pantalla principal), 3 personalidades. Elige ①, ② o ③, o di "② pero con el encabezado de ①", etc.</p>
+<div class="row">
+
+<!-- ① -->
+<div class="opt">
+  <div class="tag">① Clínica Clara</div>
+  <div class="mood">Teal suave, tarjetas blancas, limpio y confiable</div>
+  <div class="phone a">
+    <div class="scroll">
+      <div class="top">
+        <div class="hello">Buenos días 👋</div>
+        <div class="name">Mariana López</div>
+      </div>
+      <div class="card cita">
+        <div class="overline ac">Próxima cita</div>
+        <div class="t1" style="margin-top:6px">Dr. Ramírez — Cardiología</div>
+        <div class="t2">Mié 28 Oct · 10:30 AM · Consultorio 4</div>
+        <div style="margin-top:10px"><span class="pill ac" style="background:#0E9F8A;color:#fff">Confirmada</span></div>
+      </div>
+      <div class="statrow">
+        <div class="card"><div class="overline">Historial</div><div class="big" style="color:#1A1A1A">12</div><div class="t2">registros</div></div>
+        <div class="card"><div class="overline">Medicinas</div><div class="big" style="color:#1A1A1A">3</div><div class="t2">activas</div></div>
+      </div>
+      <div class="chiprow"><span class="chip on">Todas</span><span class="chip">Próximas</span><span class="chip">Pasadas</span></div>
+      <div class="card">
+        <div class="rowline"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="grow"><div class="t1">Dra. Chen — Pediatría</div><div class="t2">Lun 3 Nov · 9:00 AM</div></div><span class="pill" style="background:#E6F6F3;color:#0E9F8A">Pendiente</span></div>
+        <div class="rowline"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="grow"><div class="t1">Vacunas — Centro de Salud</div><div class="t2">12 Oct · Completada</div></div><span class="pill" style="background:#EDEDED;color:#777">Historial</span></div>
+      </div>
+    </div>
+    <div class="fence a"></div>
+    <div class="cta">+ Agendar cita</div>
+    <div class="nav">
+      <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Citas</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12v20H6z"/><path d="M9 7h6M9 11h6"/></svg>Historial</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v4H4zM9 10v10M15 10v10"/></svg>Farmacia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ② -->
+<div class="opt">
+  <div class="tag">② Profesional Azul</div>
+  <div class="mood">Encabezado azul con estadísticas, estilo hospital moderno</div>
+  <div class="phone b">
+    <div class="scroll">
+      <div class="hero">
+        <div class="hello">Buenos días 👋</div>
+        <div class="name">Mariana López</div>
+        <div class="mini">
+          <div><div class="n">2</div><div class="l">Citas próximas</div></div>
+          <div><div class="n">12</div><div class="l">Historial</div></div>
+          <div><div class="n">3</div><div class="l">Medicinas</div></div>
+        </div>
+      </div>
+      <div class="card cita">
+        <div class="overline ac">Próxima cita</div>
+        <div class="t1" style="margin-top:6px">Dr. Ramírez — Cardiología</div>
+        <div class="t2">Mié 28 Oct · 10:30 AM · Consultorio 4</div>
+        <div style="margin-top:10px"><span class="pill" style="background:#2563EB;color:#fff">Confirmada</span></div>
+      </div>
+      <div class="chiprow"><span class="chip on">Todas</span><span class="chip">Próximas</span><span class="chip">Pasadas</span></div>
+      <div class="card">
+        <div class="rowline"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="grow"><div class="t1">Dra. Chen — Pediatría</div><div class="t2">Lun 3 Nov · 9:00 AM</div></div><span class="pill" style="background:#E8EEFD;color:#2563EB">Pendiente</span></div>
+        <div class="rowline"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="grow"><div class="t1">Vacunas — Centro de Salud</div><div class="t2">12 Oct · Completada</div></div><span class="pill" style="background:#EDEDED;color:#777">Historial</span></div>
+      </div>
+    </div>
+    <div class="fence b"></div>
+    <div class="cta">+ Agendar cita</div>
+    <div class="nav">
+      <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Citas</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12v20H6z"/><path d="M9 7h6M9 11h6"/></svg>Historial</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v4H4zM9 10v10M15 10v10"/></svg>Farmacia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ③ -->
+<div class="opt">
+  <div class="tag">③ Modo Noche</div>
+  <div class="mood">Oscuro con verde fresco, moderno y de bajo consumo</div>
+  <div class="phone c">
+    <div class="scroll">
+      <div class="top">
+        <div class="hello">Buenos días 👋</div>
+        <div class="name">Mariana López</div>
+      </div>
+      <div class="card cita">
+        <div class="overline ac">Próxima cita</div>
+        <div class="t1" style="margin-top:6px">Dr. Ramírez — Cardiología</div>
+        <div class="t2">Mié 28 Oct · 10:30 AM · Consultorio 4</div>
+        <div style="margin-top:10px"><span class="pill" style="background:#22C55E;color:#101410">Confirmada</span></div>
+      </div>
+      <div class="statrow">
+        <div class="card"><div class="overline">Historial</div><div class="big" style="color:#F2F2F4">12</div><div class="t2">registros</div></div>
+        <div class="card"><div class="overline">Medicinas</div><div class="big" style="color:#F2F2F4">3</div><div class="t2">activas</div></div>
+      </div>
+      <div class="chiprow"><span class="chip on">Todas</span><span class="chip">Próximas</span><span class="chip">Pasadas</span></div>
+      <div class="card">
+        <div class="rowline"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="grow"><div class="t1">Dra. Chen — Pediatría</div><div class="t2">Lun 3 Nov · 9:00 AM</div></div><span class="pill" style="background:rgba(34,197,94,.15);color:#22C55E">Pendiente</span></div>
+        <div class="rowline"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 22c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><div class="grow"><div class="t1">Vacunas — Centro de Salud</div><div class="t2">12 Oct · Completada</div></div><span class="pill" style="background:#2A2A2E;color:#9A9AA0">Historial</span></div>
+      </div>
+    </div>
+    <div class="fence c"></div>
+    <div class="cta">+ Agendar cita</div>
+    <div class="nav">
+      <div class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Inicio</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Citas</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12v20H6z"/><path d="M9 7h6M9 11h6"/></svg>Historial</div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v4H4zM9 10v10M15 10v10"/></svg>Farmacia</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

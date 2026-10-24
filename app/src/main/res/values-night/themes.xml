@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.SaludApp" parent="android:Theme.Material.NoActionBar">
+    <item name="android:statusBarColor">#0E9F8A</item>
+    <item name="android:navigationBarColor">#1E1E20</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="android:windowBackground">#121214</item>
+  </style>
+</resources>
