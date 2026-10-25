@@ -137,7 +137,7 @@ function vInicio() {
   let estadoCita = '';
   if (pc) {
     estadoCita = '<div class="card hl" onclick="go(\'det-cita\',\'' + pc.id + '\')">' +
-      '<div class="overline-lb" style="color:var(--accent)">Próxima cita</div>' +
+      '<div class="overline-lb" style="color:var(--acc-ink)">Próxima cita</div>' +
       '<div class="t1" style="margin-top:4px">' + esc(DB.medicoNombre(pc.medico_id)) + ' — ' + esc(DB.especNombre(DB.by('medico', pc.medico_id)?.especialidad_id)) + '</div>' +
       '<div class="t2">' + esc(fmtFH(pc.fecha_hora)) + (pc.consultorio ? ' · ' + esc(pc.consultorio) : '') + '</div>' +
       '<div style="margin-top:8px"><span class="pill ok">' + esc(pc.estado) + '</span></div></div>';
@@ -233,7 +233,7 @@ function vDetCita(id) {
   const fechaLocal = new Date(new Date(c.fecha_hora).getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16);
   return '<div class="backrow"><button onclick="go(\'citas\')">' + ICON.back + 'Citas</button></div>' +
     '<div class="detail-head card hl" style="margin:8px 16px 0;border-radius:16px">' +
-    '<div class="overline-lb" style="color:var(--accent)">' + esc(c.estado) + '</div>' +
+    '<div class="overline-lb" style="color:var(--acc-ink)">' + esc(c.estado) + '</div>' +
     '<div class="t1" style="font-size:20px;margin-top:4px">' + esc(DB.medicoNombre(c.medico_id)) + '</div>' +
     '<div class="t2">' + esc(m ? DB.especNombre(m.especialidad_id) : '') + '</div>' +
     '<div class="t2" style="margin-top:6px">' + esc(fmtFH(c.fecha_hora)) + (c.consultorio ? ' · ' + esc(c.consultorio) : '') + '</div></div>' +
@@ -352,9 +352,9 @@ function vDetConsulta(id) {
   return '<div class="backrow"><button onclick="go(\'historial\')">' + ICON.back + 'Historial</button></div>' +
     '<div class="card hl" style="margin:8px 16px 0">' +
     '<div class="t2">' + esc(fmtF(c.fecha)) + ' · ' + esc(DB.medicoNombre(c.medico_id)) + (citaAsoc ? ' · por cita — ' : '') + (citaAsoc ? pillEstado(citaAsoc.estado) : '') + '</div>' +
-    '<div class="overline-lb" style="color:var(--accent);margin-top:10px">Diagnóstico</div>' +
+    '<div class="overline-lb" style="color:var(--acc-ink);margin-top:10px">Diagnóstico</div>' +
     '<div class="t1">' + esc(c.diagnostico) + '</div>' +
-    (c.indicaciones ? '<div class="overline-lb" style="color:var(--accent);margin-top:10px">Indicaciones</div><div>' + esc(c.indicaciones) + '</div>' : '') +
+    (c.indicaciones ? '<div class="overline-lb" style="color:var(--acc-ink);margin-top:10px">Indicaciones</div><div>' + esc(c.indicaciones) + '</div>' : '') +
     (c.observaciones ? '<div class="overline-lb" style="margin-top:10px">Observaciones</div><div class="t2">' + esc(c.observaciones) + '</div>' : '') + '</div>' +
     '<h2 class="overline">Medicinas derivadas de esta consulta</h2>' +
     (medsDerivados.length ? medsDerivados.map(m =>
