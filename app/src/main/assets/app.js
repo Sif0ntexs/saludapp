@@ -2,6 +2,10 @@
    Persistencia: localStorage. Sin red (RNF-04). */
 'use strict';
 
+/* Ficha de build: placeholder; el CI reemplaza esta línea por el JSON real
+   (agent_mem.py stamp) para que el APK diga qué código contiene. */
+const BUILD_INFO=null;
+
 /* ============ CAPA DB ============ */
 const DB = {
   KEY: 'saludapp_v3',
@@ -441,12 +445,23 @@ function tomar(id) {
   render();
 }
 
+/* Ficha visible del build en pantalla: prueba de qué experiencia/code estás probando */
+function buildInfoHtml() {
+  const base = 'funciona 100% sin internet. Documentación técnica: requisitos, UML y base de datos en docs/ del proyecto.';
+  if (BUILD_INFO) {
+    return 'SaludApp v' + BUILD_INFO.versionName + ' · build ' + BUILD_INFO.commitShort +
+      ' · ' + String(BUILD_INFO.builtAt).slice(0, 16).replace('T', ' ') +
+      ' · esquema de datos v4.1 · ' + base;
+  }
+  return 'SaludApp v1.1.0 · esquema de datos v4.1 · ' + base;
+}
+
 /* ============ AJUSTES / RESPALDO (RF-18) ============ */
 function vAjustes() {
   return '<div class="backrow"><button onclick="go(\'inicio\')">' + ICON.back + 'Inicio</button></div>' +
     '<h2 class="overline" style="margin-top:4px">Respaldo y datos</h2>' +
     '<div class="card row" onclick="respaldar()"><div class="ic">' + ICON.hist + '</div><div class="grow"><div class="t1">Descargar respaldo JSON</div><div class="t2">Citas, historial, farmacia y config</div></div></div>' +
-    '<div class="card"><div class="overline-lb">Acerca</div><div class="t2" style="margin-top:4px">SaludApp v1.0 · esquema de datos v3 · funciona 100% sin internet. Documentación técnica: requisitos, UML y base de datos en docs/ del proyecto.</div></div>';
+    '<div class="card"><div class="overline-lb">Acerca</div><div class="t2" style="margin-top:4px">' + buildInfoHtml() + '</div></div>';
 }
 function respaldar() {
   const blob = new Blob([JSON.stringify(DB.data, null, 2)], { type: 'application/json' });

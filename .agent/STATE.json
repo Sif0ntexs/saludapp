@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "name": "SaludApp",
+  "root": "/data/data/com.termux/files/home/saludapp",
+  "app_id": "com.zyvo.saludapp",
+  "stack": "android-gradle",
+  "created": "2026-10-26T06:53:34-04:00",
+  "updated": "2026-10-26T21:39:44-04:00",
+  "goal": "App Android offline: citas médicas, historial clínico, diagnóstico/indicaciones y farmacia personal. v2 multi-rol (paciente/médico/enfermería) + timeline + wearables.",
+  "owner": {
+    "model": "glm-5.3-flash-free (zyvo)",
+    "session": "/data/data/com.termux/files/home/storage/shared/ZYVO/session-20261026-211658",
+    "task": "culminar pendientes: bump v1.1.0, build-info en CI, línea de build en Ajustes, APK v1.1.0",
+    "since": "2026-10-26T21:36:04-04:00"
+  },
+  "now": "culminar pendientes: bump v1.1.0, build-info en CI, línea de build en Ajustes, APK v1.1.0",
+  "version": {
+    "code": 2,
+    "name": "1.1.0",
+    "source": "app/build.gradle"
+  },
+  "done": [
+    {
+      "at": "2026-10-26T06:55:46-04:00",
+      "text": "skill agent-sync instalada: libreta .agent/ + verificador de APK + 37 tests en verde",
+      "evidence": {
+        "cmd": "python3 ~/.config/zyvo/skills/agent-sync/agent-sync/tests/selftest.py",
+        "exit": 0,
+        "digest": "11e2957c88fbe3e4",
+        "tail": "iona desde fuera\n\n[7] robar el control: el modelo B arranca en cero y lee\n  ✓ status muestra AHORA\n  ✓ status muestra siguiente\n  ✓ status muestra dueño\n  ✓ status trae evidencia\n\n[8] repo sucio y APK sin stamp\n  ✓ avisa DIRTY_TREE\n  ✓ avisa sin build-info\n  ✓ verify NO_BUILD_STAMP\n\n==================================================\n  37 pasaron · 0 fallaron\n  ✓ autotest completo (sandbox borrado)"
+      },
+      "commit": "84bb5f8110c0a3861a0766d6eb787259d4a6fbf4",
+      "model": "deepseek-v4.1-flash-free"
+    },
+    {
+      "at": "2026-10-26T06:55:47-04:00",
+      "text": "libreta multi-modelo operativa en el proyecto",
+      "evidence": null,
+      "commit": "84bb5f8110c0a3861a0766d6eb787259d4a6fbf4",
+      "model": "deepseek-v4.1-flash-free"
+    },
+    {
+      "at": "2026-10-26T21:39:33-04:00",
+      "text": "bump 1.1.0(2) + stamp/inyección BUILD_INFO en CI + línea de build en Ajustes (esquema v4.1)",
+      "evidence": {
+        "cmd": "node --check app.js → OK · curl :8484 assets 200/200",
+        "exit": 1,
+        "digest": "a7f6bc6cdbee5875",
+        "tail": "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/data/data/com.termux/files/home/saludapp/app.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at node:internal/main/check_syntax:33:20 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.1"
+      },
+      "commit": "84bb5f8110c0a3861a0766d6eb787259d4a6fbf4",
+      "model": "glm-5.3-flash-free (zyvo)"
+    },
+    {
+      "at": "2026-10-26T21:39:42-04:00",
+      "text": "bump 1.1.0(2) + stamp + inyección BUILD_INFO en CI + línea de build en Ajustes (esquema v4.1)",
+      "evidence": {
+        "cmd": "node --check app/src/main/assets/app.js && curl -s -o /dev/null http://127.0.0.1:8484/app/src/main/assets/app.js",
+        "exit": 0,
+        "digest": "e3b0c44298fc1c14",
+        "tail": ""
+      },
+      "commit": "84bb5f8110c0a3861a0766d6eb787259d4a6fbf4",
+      "model": "glm-5.3-flash-free (zyvo)"
+    }
+  ],
+  "next": [
+    "bump a 1.1.0 (versionCode 2): la v1.0 ya incluye el rediseño pero el número no lo dice",
+    "añadir 'agent-mem stamp' al workflow antes de gradle assembleDebug y mostrar v+commit en Ajustes",
+    "reconstruir APK y registrarla con: agent-mem artifact <archivo>.apk",
+    "instalar en el celular y verificar en pantalla la línea de build",
+    "instalar APK v1.1.0 y confirmar línea de build en pantalla"
+  ],
+  "decisions": [
+    {
+      "at": "2026-10-26T06:53:43-04:00",
+      "text": "ruta canónica = ~/saludapp; la copia en storage/shared/ZYVO/session-20261023-194853 queda como archivo histórico, NO se edita",
+      "model": "deepseek-v4.1-flash-free"
+    },
+    {
+      "at": "2026-10-26T06:53:44-04:00",
+      "text": "todo APK entregado debe llevar build-info.json y versionCode subido",
+      "model": "deepseek-v4.1-flash-free"
+    }
+  ],
+  "artifacts": [],
+  "verify_cmds": [
+    "node --check app/src/main/assets/app.js"
+  ],
+  "build_cmd": "gradle assembleDebug",
+  "history": [
+    {
+      "at": "2026-10-26T06:53:35-04:00",
+      "event": "init",
+      "model": null,
+      "detail": "detectado android-gradle"
+    },
+    {
+      "at": "2026-10-26T06:53:42-04:00",
+      "event": "claim",
+      "model": "deepseek-v4.1-flash-free",
+      "detail": "instalar libreta multi-modelo (agent-sync) y dejar el estado listo para el siguiente modelo"
+    },
+    {
+      "at": "2026-10-26T06:53:43-04:00",
+      "event": "decide",
+      "model": "deepseek-v4.1-flash-free",
+      "detail": "ruta canónica = ~/saludapp; la copia en storage/shared/ZYVO/session-20261023-194853 queda como archivo histórico, NO se edita"
+    },
+    {
+      "at": "2026-10-26T06:53:44-04:00",
+      "event": "decide",
+      "model": "deepseek-v4.1-flash-free",
+      "detail": "todo APK entregado debe llevar build-info.json y versionCode subido"
+    },
+    {
+      "at": "2026-10-26T06:53:44-04:00",
+      "event": "next",
+      "model": "deepseek-v4.1-flash-free",
+      "detail": "bump a 1.1.0 (versionCode 2): la v1.0 ya incluye el rediseño pero el número no lo dice; añadir 'agent-mem stamp' al workflow antes de gradle assembleDebug y mostrar v+commit en Ajustes; reconstruir APK y registrarla con: agent-mem artifact <archivo>.apk; instalar en el celular y verificar en pantalla la línea de build"
+    },
+    {
+      "at": "2026-10-26T06:55:46-04:00",
+      "event": "log",
+      "model": "deepseek-v4.1-flash-free",
+      "detail": "skill agent-sync instalada: libreta .agent/ + verificador de APK + 37 tests en verde"
+    },
+    {
+      "at": "2026-10-26T06:55:47-04:00",
+      "event": "handoff",
+      "model": "siguiente modelo",
+      "detail": "libreta multi-modelo operativa en el proyecto"
+    },
+    {
+      "at": "2026-10-26T21:36:04-04:00",
+      "event": "takeover",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "siguiente modelo → glm-5.3-flash-free (zyvo)"
+    },
+    {
+      "at": "2026-10-26T21:36:04-04:00",
+      "event": "claim",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "culminar pendientes: bump v1.1.0, build-info en CI, línea de build en Ajustes, APK v1.1.0"
+    },
+    {
+      "at": "2026-10-26T21:36:05-04:00",
+      "event": "bump",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "1.0 (1) → 1.1.0 (2) en app/build.gradle"
+    },
+    {
+      "at": "2026-10-26T21:39:33-04:00",
+      "event": "log",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "bump 1.1.0(2) + stamp/inyección BUILD_INFO en CI + línea de build en Ajustes (esquema v4.1)"
+    },
+    {
+      "at": "2026-10-26T21:39:34-04:00",
+      "event": "next",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "instalar APK v1.1.0 y confirmar línea de build en pantalla"
+    },
+    {
+      "at": "2026-10-26T21:39:42-04:00",
+      "event": "log",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "bump 1.1.0(2) + stamp + inyección BUILD_INFO en CI + línea de build en Ajustes (esquema v4.1)"
+    },
+    {
+      "at": "2026-10-26T21:39:44-04:00",
+      "event": "next",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": ""
+    }
+  ]
+}
