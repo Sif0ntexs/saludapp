@@ -13,6 +13,27 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    /* Firma estable: el keystore vive en el repo para que cada APK del CI
+       pueda instalarse ENCIMA del anterior sin perder los datos locales. */
+    signingConfigs {
+        estable {
+            storeFile file('keystore/saludapp-debug.p12')
+            storeType 'PKCS12'
+            storePassword 'saludapp'
+            keyAlias 'saludapp'
+            keyPassword 'saludapp'
+            enableV1Signing true
+            enableV2Signing true
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.estable
+        }
+        release {
+            signingConfig signingConfigs.estable
+        }
+    }
 }
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
