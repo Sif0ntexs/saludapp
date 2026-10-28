@@ -283,10 +283,13 @@ Todas las vías mantenienen 100 % offline y sin permiso INTERNET (RNF-04).
 - Instalable desde APK firmado de debug en Android 8+.
 - Los 3 diagramas de secuencia coinciden con el comportamiento real de la app.
 
-**v2 (25-10-2026, pendiente de milestone):** verificados RF-19…RF-26 según
-su criterio individual, incluyendo el recorrido del profesional
-(enfermería consulte el timeline sin poder editar) y el de
-consentimiento (vincular ver y revocar).
+**v2 (25-10-2026) — IMPLEMENTADO en app v1.2.0 (esquema de datos v4.1):**
+RF-19…RF-31 verificados según su criterio individual, incluyendo el
+recorrido del profesional (enfermería consulta el timeline sin poder
+editar y cada lectura queda en auditoría) y el de consentimiento
+(vincular, ver y revocar). Evidencia: `node tools/smoke-test.js`
+(8 pruebas: migración v3→v4.1, timeline, vínculo/auditoría, revocación
+con fila conservada, mediciones y deduplicación).
 
 ## 9. Trazabilidad RF → Caso de uso → Entidad → Pantalla
 

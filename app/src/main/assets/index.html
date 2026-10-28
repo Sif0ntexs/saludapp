@@ -16,7 +16,7 @@
 :root {
   /* superficies — blanco con tinte de marca (más cálido que gris neutro) */
   --bg:#F5FAF9; --card:#FBFEFD; --line:#E0EBE8;
-  /* texto — profundidad en el hue de la marca,前来 contrastes verificados */
+  /* texto — profundidad en el hue de la marca, con contrastes verificados */
   --text-1:#152527; --text-2:#526163; --text-3:#A9B3B5;
   /* acentos teal (tono 178.7 OKLCH) */
   --accent:#0F9F8A;             /* gráficos, iconos, sombras — 3.3:1 vs blanco (≥3) */
@@ -211,6 +211,22 @@ input.f:focus, textarea.f:focus, select.f:focus {
   background:none; border:0; color:var(--acc-ink); font:inherit; font-weight:700;
   padding:8px 8px 8px 0; display:flex; align-items:center; gap:4px; min-height:44px;  /* táctil WCAG */
 }
+
+/* ---------- timeline (v2) ---------- */
+.tl { margin:4px 16px 0; }
+.tl-item {
+  display:flex; align-items:center; gap:12px; padding:12px 14px; margin-top:8px;
+  background:var(--card); border-radius:14px; box-shadow:var(--elev-card);
+  border-left:3px solid var(--accent);
+}
+.tl-item .grow { flex:1; min-width:0; }
+.tl-t { font-size:14px; font-weight:600; letter-spacing:-.01em; }
+.tl-item .ic { width:34px; height:34px; border-radius:11px; }
+.tl-item .ic svg { width:17px; height:17px; }
+
+/* ---------- gráfica de tendencia (v2.1) ---------- */
+.chart { width:100%; height:96px; display:block; }
+.chart-lb { display:flex; justify-content:space-between; font-size:11px; color:var(--text-2); margin-top:4px; }
 
 /* ---------- accesibilidad ---------- */
 :focus-visible { outline:3px solid rgba(0,125,107,.55); outline-offset:2px; border-radius:6px; }
