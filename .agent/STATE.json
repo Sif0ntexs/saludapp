@@ -5,7 +5,7 @@
   "app_id": "com.zyvo.saludapp",
   "stack": "android-gradle",
   "created": "2026-10-26T06:53:34-04:00",
-  "updated": "2026-10-28T06:33:19-04:00",
+  "updated": "2026-10-28T06:36:31-04:00",
   "goal": "App Android offline: citas médicas, historial clínico, diagnóstico/indicaciones y farmacia personal. v2 multi-rol (paciente/médico/enfermería) + timeline + wearables.",
   "owner": {
     "model": "glm-5.3-flash-free (zyvo)",
@@ -13,7 +13,7 @@
     "task": "culminar pendientes: bump v1.1.0, build-info en CI, línea de build en Ajustes, APK v1.1.0",
     "since": "2026-10-26T21:36:04-04:00"
   },
-  "now": "revisar el preview en el navegador y, si esta OK, commit + push para que CI publique el APK 1.2.0",
+  "now": "instalar el APK v1.2.0(3) en el celular y probar el recorrido v2/v2.1",
   "version": {
     "code": 3,
     "name": "1.2.0",
@@ -77,10 +77,9 @@
     }
   ],
   "next": [
-    "instalar el APK v1.1.0(2) en el celular y confirmar en pantalla la linea de build (Ajustes)",
-    "implementar en codigo el timeline + perfiles multi-rol (ERS 2.0 / UML v2 / BD 4.1 ya documentados)",
-    "aplicar el DDL v4.1 (usuario, vinculo_personal, acceso_auditoria, dispositivo, medicion) al almacenamiento de la app",
-    "implementar captura de mediciones wearables (Health Connect / BLE / manual) segun BD 4.1"
+    "probar en el celular: usuario enfermeria -> abrir perfil (auditoria) -> revocar (acceso cortado)",
+    "probar mediciones: registrar pulso, ver tendencia y dedupe con dispositivo",
+    "decidir puente nativo para Health Connect / BLE (opcional, siguiente version)"
   ],
   "decisions": [
     {
@@ -97,20 +96,20 @@
   "artifacts": [
     {
       "kind": "apk",
-      "path": "/data/data/com.termux/files/home/saludapp/saludapp-v1.1.0-2.apk",
-      "sha256": "819d24996c5f1b26a1cb9dd645a6456437030e404b55db096035028b80da65c5",
-      "size": 3169874,
-      "registered": "2026-10-28T06:04:07-04:00",
-      "registered_ts": 1793181847.954848,
-      "versionCode": 2,
-      "versionName": "1.1.0",
-      "built_from": "7dab0f9fcd6904bd1b606f770fe57dc78e1ba931",
+      "path": "/data/data/com.termux/files/usr/tmp/zyvo/saludapp-v1.2.0-3.apk",
+      "sha256": "2814023abe17da96639c97dde3c118c1e747c631aaeb1e15c33edc7386c69a37",
+      "size": 3183678,
+      "registered": "2026-10-28T06:36:23-04:00",
+      "registered_ts": 1793183783.435131,
+      "versionCode": 3,
+      "versionName": "1.2.0",
+      "built_from": "61af435af7a1843c86a76e35e1cd51d8d883ffb1",
       "stamp_path": "assets/build-info.json",
       "stamp": {
-        "commitShort": "7dab0f9",
+        "commitShort": "61af435",
         "branch": "main",
         "dirty": false,
-        "builtAt": "2026-10-27T01:40:04+00:00",
+        "builtAt": "2026-10-28T10:34:02+00:00",
         "builtBy": "Sif0ntexs"
       }
     }
@@ -254,6 +253,24 @@
     },
     {
       "at": "2026-10-28T06:33:19-04:00",
+      "event": "handoff",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-28T06:36:16-04:00",
+      "event": "artifact",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "a6.apk"
+    },
+    {
+      "at": "2026-10-28T06:36:23-04:00",
+      "event": "artifact",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "saludapp-v1.2.0-3.apk"
+    },
+    {
+      "at": "2026-10-28T06:36:31-04:00",
       "event": "handoff",
       "model": "glm-5.3-flash-free (zyvo)",
       "detail": ""
