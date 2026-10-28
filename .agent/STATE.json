@@ -5,7 +5,7 @@
   "app_id": "com.zyvo.saludapp",
   "stack": "android-gradle",
   "created": "2026-10-26T06:53:34-04:00",
-  "updated": "2026-10-28T06:36:31-04:00",
+  "updated": "2026-10-28T06:44:56-04:00",
   "goal": "App Android offline: citas médicas, historial clínico, diagnóstico/indicaciones y farmacia personal. v2 multi-rol (paciente/médico/enfermería) + timeline + wearables.",
   "owner": {
     "model": "glm-5.3-flash-free (zyvo)",
@@ -13,10 +13,10 @@
     "task": "culminar pendientes: bump v1.1.0, build-info en CI, línea de build en Ajustes, APK v1.1.0",
     "since": "2026-10-26T21:36:04-04:00"
   },
-  "now": "instalar el APK v1.2.0(3) en el celular y probar el recorrido v2/v2.1",
+  "now": "instalar el APK v1.2.1(4) y probar el recorrido v2/v2.1",
   "version": {
-    "code": 3,
-    "name": "1.2.0",
+    "code": 4,
+    "name": "1.2.1",
     "source": "app/build.gradle"
   },
   "done": [
@@ -96,20 +96,20 @@
   "artifacts": [
     {
       "kind": "apk",
-      "path": "/data/data/com.termux/files/usr/tmp/zyvo/saludapp-v1.2.0-3.apk",
-      "sha256": "2814023abe17da96639c97dde3c118c1e747c631aaeb1e15c33edc7386c69a37",
-      "size": 3183678,
-      "registered": "2026-10-28T06:36:23-04:00",
-      "registered_ts": 1793183783.435131,
-      "versionCode": 3,
-      "versionName": "1.2.0",
-      "built_from": "61af435af7a1843c86a76e35e1cd51d8d883ffb1",
+      "path": "/data/data/com.termux/files/usr/tmp/zyvo/saludapp-v1.2.1-4.apk",
+      "sha256": "03ad3f3329fe9b5064ec8ca6e89073285241b987bb5160b836a8c04f670ac880",
+      "size": 3223429,
+      "registered": "2026-10-28T06:44:55-04:00",
+      "registered_ts": 1793184295.946213,
+      "versionCode": 4,
+      "versionName": "1.2.1",
+      "built_from": "4242849a2b6e2f5e34e1cd92514349e389cf0d1a",
       "stamp_path": "assets/build-info.json",
       "stamp": {
-        "commitShort": "61af435",
+        "commitShort": "4242849",
         "branch": "main",
         "dirty": false,
-        "builtAt": "2026-10-28T10:34:02+00:00",
+        "builtAt": "2026-10-28T10:43:07+00:00",
         "builtBy": "Sif0ntexs"
       }
     }
@@ -271,6 +271,24 @@
     },
     {
       "at": "2026-10-28T06:36:31-04:00",
+      "event": "handoff",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": ""
+    },
+    {
+      "at": "2026-10-28T06:42:40-04:00",
+      "event": "artifact",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "saludapp-v1.2.0-3-firmado.apk"
+    },
+    {
+      "at": "2026-10-28T06:44:55-04:00",
+      "event": "artifact",
+      "model": "glm-5.3-flash-free (zyvo)",
+      "detail": "saludapp-v1.2.1-4.apk"
+    },
+    {
+      "at": "2026-10-28T06:44:56-04:00",
       "event": "handoff",
       "model": "glm-5.3-flash-free (zyvo)",
       "detail": ""

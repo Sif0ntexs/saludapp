@@ -41,7 +41,13 @@ automáticamente al abrir.
 - Medición = valor informativo, nunca diagnóstico (R8). Rango de referencia editable.
 - Deduplicación de mediciones: (dispositivo, tipo, fecha_hora) → sobrescribe.
 
+## Firma (importante)
+`app/keystore/saludapp-debug.p12` (PKCS12, pass `saludapp`, alias `saludapp`)
+está en el repo y `build.gradle` la usa para debug y release. **No borrarla**:
+misma firma = cada APK nuevo se instala encima y conserva los datos locales.
+Si se pierde, todos los usuarios tendrían que desinstalar.
+
 ## Estado (28-10-2026)
-v1.2.0 (code 3): v2 multi-rol + timeline + auditoría y v2.1 dispositivos/
+v1.2.1 (code 4): v2 multi-rol + timeline + auditoría y v2.1 dispositivos/
 mediciones implementados en código; captura por **entrada manual** (canal
 Health Connect / BLE requiere puente nativo — `window.SaludAppNative.getMediciones`).

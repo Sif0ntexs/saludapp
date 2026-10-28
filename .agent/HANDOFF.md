@@ -6,15 +6,15 @@
 
 - Ruta canónica: `/data/data/com.termux/files/home/saludapp`
 - Stack: `android-gradle` · app id: `com.zyvo.saludapp`
-- Versión en código: code **3** · name **1.2.0** (`app/build.gradle`)
-- Git: `61af435` en `main`
+- Versión en código: code **4** · name **1.2.1** (`app/build.gradle`)
+- Git: `4242849` en `main`
 - Dueño actual: **glm-5.3-flash-free (zyvo)** desde 2026-10-26T21:36:04-04:00 · tarea: culminar pendientes: bump v1.1.0, build-info en CI, línea de build en Ajustes, APK v1.1.0
 
 ## Objetivo
 App Android offline: citas médicas, historial clínico, diagnóstico/indicaciones y farmacia personal. v2 multi-rol (paciente/médico/enfermería) + timeline + wearables.
 
 ## AHORA (por aquí vamos)
-instalar el APK v1.2.0(3) en el celular y probar el recorrido v2/v2.1
+instalar el APK v1.2.1(4) y probar el recorrido v2/v2.1
 
 ## Hecho (con evidencia)
 - [x] skill agent-sync instalada: libreta .agent/ + verificador de APK + 37 tests en verde — `python3 ~/.config/zyvo/skills/agent-sync/agent-sync/tests/selftest.py` → exit 0 · commit `84bb5f8` · 2026-10-26 06:55
@@ -33,13 +33,16 @@ instalar el APK v1.2.0(3) en el celular y probar el recorrido v2/v2.1
 - todo APK entregado debe llevar build-info.json y versionCode subido (2026-10-26)
 
 ## Artefactos
-- `saludapp-v1.2.0-3.apk` · v1.2.0 (code 3) · commit `61af435` · sha `2814023abe` · 2026-10-28T06:36
+- `saludapp-v1.2.1-4.apk` · v1.2.1 (code 4) · commit `4242849` · sha `03ad3f3329` · 2026-10-28T06:44
 
 ## Avisos del verificador
 - limpio
 
 <!-- NOTAS-LIBRES -->
 (zona libre: notas humanas, el script no la borra)
+
+
+
 
 
 
