@@ -1169,7 +1169,7 @@ function buildInfoHtml() {
       ' · ' + String(BUILD_INFO.builtAt).slice(0, 16).replace('T', ' ') +
       ' · esquema de datos v4.1 · ' + base;
   }
-  return 'SaludApp v1.2.0 · esquema de datos v4.1 · ' + base;
+  return 'SaludApp v1.2.1 · esquema de datos v4.1 · ' + base;
 }
 
 /* ============ AJUSTES / RESPALDO (RF-18) ============ */
